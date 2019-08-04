@@ -5,7 +5,7 @@ This source code is licensed under the ISC-style license found in the LICENSE fi
 export default function shebangPlugin(shebang) {
   return {
     name: 'shebang Rollup plugin',
-    transformBundle(code) {
+    renderChunk(code) {
       return String(shebang || '#!/usr/bin/env node\n') + code
     },
   }
