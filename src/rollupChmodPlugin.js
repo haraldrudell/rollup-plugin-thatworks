@@ -7,7 +7,7 @@ import fs from 'fs'
 export default function chmodPlugin(mode) {
   return {
     name: 'chmod Rollup plugin',
-    writeBundle(bundle, data) {
+    generateBundle(bundle, data) { // rollup 1.x (0.x is onwrite)
       const filename = String(bundle && (bundle.file || bundle.dest) || '')
       if (!filename) throw new Error('chmod Rollup plugin.onwrite: filename missing')
       fs.chmodSync(filename, mode >= 0 ? Number(mode) : 0o755) // rwxr-xr-x

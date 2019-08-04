@@ -1,32 +1,46 @@
 {
   "name": "rollup-plugin-thatworks",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Chmod + Directory Resolver + Shebang Rollup plugins by Harald Rudell",
   "author": "Harald Rudell <harald.rudell@gmail.com> (http://haraldrudell.com)",
   "license": "ISC",
   "scripts": {
     "build": "rollup --config node:es2049package",
+    "clean": "clean lib",
     "pub": "yarn publish --patch --access public"
   },
-  "main": "lib/cjs.js",
-  "module": "lib/esm.js",
+  "type": "module",
+  "main": "lib/thatworks.js",
+  "maincjs": "lib/cjs.js",
   "keywords": [
-    "Create React App",
-    "React",
-    "Component",
-    "Library",
-    "lib",
+    "plugin",
+    "executable",
+    "resolve",
+    "node-resolve",
     "rollup"
   ],
   "rollup": {
+    "output": [
+      {
+        "file": "lib/thatworks.js",
+        "format": "es"
+      },
+      {
+        "file": "lib/cjs.js",
+        "format": "cjs"
+      }
+    ],
     "targets": "mini"
+  },
+  "devEngines": {
+    "node": ">= 12"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/haraldrudell/rollup-plugin-thatworks"
   },
   "devDependencies": {
-    "es2049package": "^0.0.23"
+    "es2049package": "^1.0.1"
   },
   "dependencies": {
     "fs-extra": "^8.1.0"
